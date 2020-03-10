@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="style.css">
+
+  <script type="text/javascript" src="javas.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+	<title>Partido</title>
+</head>
+<body>
+<nav class="navbar navbar-default">
+<div class="container">
+      <div class="navbar-header">
+        <a href="#" class="navbar-brand"><img title="Rusia 2018" src="http://www.balonazos.com/wp-content/uploads/2015/11/RUSIA2018.png" /></a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.html">Inicio</a></li>
+        <li><a href="#">Sede</a></li>
+        <li><a href="Partido.html" id="partido">Partidos</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Grupos A <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Uruguay</a></li>
+            <li><a href="#">Rusia</a></li>
+            <li><a href="#">Arabia Saudita</a></li>
+            <li><a href="#">Egipto</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Grupos B <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">España</a></li>
+            <li><a href="#">Portugal</a></li>
+            <li><a href="#">Irán</a></li>
+            <li><a href="#">Marruecos</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Grupos C <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Francia</a></li>
+            <li><a href="#">Dinamarca</a></li>
+            <li><a href="#">Perú</a></li>
+            <li><a href="#">Australia</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Grupos D <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Croacia</a></li>
+            <li><a href="#">Argentina</a></li>
+            <li><a href="#">Nigeria</a></li>
+            <li><a href="#">Islandia</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Grupos E <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Polonia</a></li>
+            <li><a href="#">Senegal</a></li>
+            <li><a href="Colombia.html" id="selh3">Colombia</a></li>
+            <li><a href="#">Japon</a></li>
+          </ul>
+        </li>
+        <li><a href="Contacto.html" id="contacto">Contacto</a></li>
+      </ul>
+    </div>
+</nav>
+<div class="container">
+<div class="row">
+<div class="col-xs-12">
+<table class="table table-hover">
+<thead>
+<tr>
+<th>Fecha</th>
+<th>Equipo Local</th>
+<th>Equipo Visitante</th>
+</tr>
+</thead>
+<tbody id="contenido">
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+	var part="";
+	$.getJSON('Partidos.json', function(datos){
+		$("#contenido").html('');
+		$.each(datos["Partidos"], function(idx,Partido){
+			$("#contenido").append("<tr>"+"<td>"+Partido["fecha"]
+				+"</td><td>"+Partido["equipo1"]+"</td><td>"
+					+Partido.equipo2+"</td>"+
+					"</tr>");
+		});
+	});
+</script>		
+</body>
+</html>
